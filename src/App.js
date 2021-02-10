@@ -1,24 +1,39 @@
-import logo from './logo.svg';
+import {useState} from 'react'
 import './App.css';
+import data from './data'
 
 function App() {
+
+  const [text, setText] = useState("");
+
+  const filteredNames = ( data.filter(d => {
+    return d.name.toLowerCase().indexOf( text.toLowerCase()) !== -1
+  }))
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+        <div id="search"><input type="text" onChange={(e)=>setText(e.target.value)} placeholder="Search..."></input></div>
+
+        <table>
+          <thead>
+            <tr>
+            <th>Name</th>
+            <th>Location</th>
+            </tr>
+          </thead>
+
+          <tbody>
+          {filteredNames.map(i=> {
+            return (<tr id="row" key={i.id}>
+              <td>{i.name}</td>
+              <td>{i.location}</td>
+            </tr>)
+          })}
+          </tbody>
+          
+        </table>
+    </>
   );
 }
 

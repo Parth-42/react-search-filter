@@ -1,38 +1,85 @@
-.App {
-  text-align: center;
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(179, 179, 179);
+    font-family: sans-serif;
+    overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#search {
+    position: relative;
+    left: 50%;
+    margin: 5em 0em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input {
+    transform: translateX(-50%);
+    width: 30%;
+    padding: 0.7em 1em;
+    border: none;
+    border-radius: 3px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+table {
+    width: 40%;
+    margin: auto;
+    outline: 1px solid black;
 }
 
-.App-link {
-  color: #61dafb;
+table,
+td {
+    border-collapse: collapse;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#row:nth-child(odd) {
+    background-color: rgb(224, 224, 224);
+}
+
+#row:nth-child(even) {
+    background-color: rgb(206, 206, 206);
+}
+
+thead {
+    display: table;
+    /* to take the same width as tr */
+    width: calc(100% - 17px);
+    /* - 17px because of the scrollbar width */
+    background-color: white;
+}
+
+tbody {
+    display: block;
+    /* to enable vertical scrolling */
+    max-height: 400px;
+    /* e.g. */
+    overflow-y: scroll;
+    /* keeps the scrollbar even if it doesn't need it; display purpose */
+}
+
+th,
+td {
+    width: 33.33%;
+    word-break: break-all;
+}
+
+th {
+    padding: 1em 0em;
+    border-bottom: 1px solid gray;
+}
+
+td {
+    padding: 0.8em 0em;
+}
+
+tr {
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+td {
+    text-align: center;
+    border-bottom: none;
+    border-left: none;
 }
